@@ -1,0 +1,318 @@
+프로젝트 이름: SSYFood
+context-root: ssy
+web.xml 생성
+
+
+패키지 구조
+- "com.ssy"		> 메인
+- "com.ssy.admin"	   		 > 관리자 
+- "com.ssy.seller"	   		 > 판매자
+- "com.ssy.member"	   	     > 회원
+- "com.ssy.product"			> 상품
+- "com.ssy.order"			> 주문
+- "com.ssy.account"			> 계정
+- "com.ssy.pay"				> 결제
+- "com.ssy.eventboard"  	> 이벤트게시판
+- "com.ssy.noticeboard"		> 공지사항 게시판
+- "com.ssy.review" 			> 후기댓글
+- "com.ssy.qnaboard" 		> 판매자문의 게시판
+- "com.ssy.complainboard" 	> 관리자문의 게시판
+- "com.ssy.Faqboard" 		> 자주하는질문 게시판
+- "com.ssy.etc"	> 부가 기능..
+
+
+[상품]
+- "com.ssy.product"
+   > ProductDAO
+   > ProductDTO
+   > ProductInfo : 상품정보
+   
+[관리자]
+- "com.ssy.admin" 
+				> Post.java 		: 택배사
+				> Coupon.java 		: 쿠폰
+				> RandomBox.java 	: 랜덤박스
+				> Survey.java		: 설문조사
+				> AdminPage.java	: 관리자페이지
+				> AdminDTO.java 
+				> AdminDAO.java 
+				
+[판매자]
+- "com.ssy.seller"
+				> SellerPage.java	: 판매자페이지
+				> SellerDAO.java
+				> SellerDTO.java
+[회원]
+- "com.ssy.member"
+				> MemberPage.java	: 회원페이지
+				> Jjim.java			: 찜목록
+				> JjimOk.java		: 찜목록
+				> Bucket.java		: 장바구니 
+				> BucketOk.java		: 장바구니 
+				> MemberDAO.java
+				> MemberDTO.java
+				
+[메인]
+- "com.ssy" 
+            > Index.java       : 메인
+            > Template.java
+            > DBUtil.java
+            
+[주문내역]            
+- "com.ssy.order" 
+            > Order.java      : 주문내역
+            > OrderDAO.java      : 주문내역 DAO
+            > OrderDTO.java     : 주문내역 DTO
+            
+[계정]
+- "com.ssy.account" 
+            > Login.java             : 로그인
+            > LoginOk.java           : 로그인OK
+            > LogoutOk.java          : 로그아웃Ok
+            > Register.java       	 : 회원가입
+            > RegisterOK.java        : 회원가입Ok
+            
+            > UnRegisterOk.java      : 회원탈퇴
+            > UnRegister.java        : 회원탈퇴
+            > AccountDAO.java  		 : 계정관리DAO
+				
+[결제]
+- "com.ssy.pay" 
+				> Refund.java 		: 환불
+				> Pay.java			: 결제페이지
+				> PayOk.java		: 결제페이지
+				> PayDAO.java		
+				
+[게시판]
+				
+- "com.ssy.board" >
+   > BoardDAO.java
+   > BoardDTO.java
+   > Add.java               : 게시판 글 추가
+   > Addok.java
+   > Del.java                : 게시판 글 삭제
+   > Delok.java
+   > Edit.java             : 게시판 글 수정
+   > Editok.java
+
+
+- "com.ssy.eventboard"
+   > EvtBoardDAO.java
+   > EvtBoardDTO.java
+   > EvtAdd.java               : 게시판 글 추가
+   > EvtAddok.java
+   > EvtDel.java                : 게시판 글 삭제
+   > EvtDelok.java
+   > EvtEdit.java             : 게시판 글 수정
+   > EvtEditok.java
+   
+- "com.ssy.noticeboard"
+   > NtBoardDAO.java
+   > NtBoardDTO.java
+   > NtAdd.java               : 게시판 글 추가
+   > NtAddok.java
+   > NtDel.java                : 게시판 글 삭제
+   > NtDelok.java
+   > NtEdit.java             : 게시판 글 수정
+   > NtEditok.java
+   
+- "com.ssy.product"
+   > RecommendList.java : 추천상품 목록
+   > NewList.java : 신상품 목록
+
+
+- "com.ssy.review"
+   > ReviewDAO.java
+   > ReviewDTO.java
+   > RvAdd.java               : 게시판 글 추가
+   > RvAddok.java
+   
+   > RvDel.java                : 게시판 글 삭제
+   > RvDelok.java
+   > RvEdit.java             : 게시판 글 수정
+   > RvEditok.java
+   
+- "com.ssy.qnaboard"  (회원 > 판매자)
+   > QnaDAO.java
+   > QnaDTO.java
+   > QnaAdd.java               : 게시판 글 추가
+   > QnaAddOk.java
+   > QnaDel.java                : 게시판 글 삭제
+   > QnaDelOk.java
+   > QnaEdit.java             : 게시판 글 수정
+   > QnaEditOk.java
+   > QnaBoardList.java       : 판매자문의게시판 목록
+   
+   
+    > QnaCommentAdd.java               : 게시판 글 추가
+   > QnaCommentAddOk.java
+   > QnaCommentDel.java                : 게시판 글 삭제
+   > QnaCommentDelOk.java
+   > QnaCommentEdit.java             : 게시판 글 수정
+   > QnaCommentEditOk.java
+   
+- "com.ssy.complainboard" (회원 > 관리자)
+   > ComplainBoardList.java    : 관리자문의게시판 목록
+   > ComplainDAO.java
+   > ComplainDTO.java
+   > CpAdd.java               : 게시판 글 추가
+   > CpAddOk.java
+   > CpDel.java                : 게시판 글 삭제
+   > CpDelOk.java
+   > CpEdit.java             : 게시판 글 수정
+   > CpEditOk.java
+   
+   
+   > CpCommentAdd.java               : 게시판 글 추가
+   > CpCommentAddOk.java
+   > CpCommentDel.java                : 게시판 글 삭제
+   > CpCommentDelOk.java
+   > CpCommentEdit.java             : 게시판 글 수정
+   > CpCommentEditOk.java
+   
+- "com.ssy.Faqboard"
+   > FaqList.java                : 자주하는 질문목록
+   > FaqDAO.java
+   > FaqDTO.java
+   > FaqAdd.java               : 게시판 글 추가
+   > FaqAddok.java
+   > FaqDel.java                : 게시판 글 삭제
+   > FaqDelok.java
+   > FaqEdit.java             : 게시판 글 수정
+   > FaqEditok.java
+   
+   --게시판끝---
+  
+
+
+폴더 구조
+- webapp > WEB-INF  > "views"	  		: 뷰 루트
+					   	> "admin" 			: 게시판
+					   	> "seller"  		: 관리자
+					   	> "board"			: 게시판
+					   	> "member"			: 회원
+					   	> "account"			: 계정
+					   	> "product"			: 상품
+					   	> "order"			: 주문
+					   	> "pay"			: 결제
+					
+
+라이브러리
+- webapp > WEB-INF > lib
+						- ojdbc6.jar 
+						- jstl-1.2.jar
+						- lombok.jarf
+						- cos.jar
+						- json-simple.jar
+						
+
+
+- webapp > WEB-INF > "inc" > asset.jsp 			: 조각 페이지
+						   > header.jsp
+- webapp > "asset"
+			> "css"					: CSS
+			> "js"					: JavaScript
+			> "pic"					: 상품사진
+			> "files"				: 첨부파일
+						
+
+
+
+						
+[시작 페이지]
+- com.ssy > "Index.java"
+- views > "index.jsp"
+- views > "template.jsp"
+
+[회원 가입]
+- com.ssy.account > "Register.java"
+					 > "RegisterOk.java"
+- views > account > "register.jsp"
+
+					
+[로그인 + 로그아웃]
+- com.ssy.account > "Login.java"
+			  > "LoginOk.java"
+			  > "LogoutOk.java"
+- views > account > "login.jsp"
+
+
+[회원 탈퇴]
+- com.ssy.account > "Unregister.java"
+		 	 > "UnregisterOk.java"
+- views > account > "unregister.jsp"
+
+
+[회원 정보]
+- com.ssy.Member > "MemberPage.java"
+- views > member > "memberpage.jsp"
+
+[판매자 정보]
+- com.ssy.Seller > "SellerPage.java"
+- views > seller > "sellerpage.jsp"
+
+[관리자 정보]
+- com.ssy.Admin> "AdminPage.java"
+- views > admin > "adminpage.jsp"
+
+
+[게시판]
+- views > board > ""
+
+
+
+
+
+
+
+
+
+[차트]
+- 데이터 연동 + 출력
+- com.test.toy.admin > "Chart.java"
+> "Admin.DAO.java"
+> "ChartDTO.java"
+- views > admin > "chart.jsp"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					
+					
+					
